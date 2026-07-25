@@ -1,0 +1,52 @@
+ALTER TABLE
+    cliente
+ADD
+    CONSTRAINT cliente_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    cliente
+ADD
+    CONSTRAINT cpf_11_digitos CHECK (
+        char_length(cpf) = 11
+        AND cpf ~ '^[0-9]+$'
+    );
+
+ALTER TABLE
+    vendedor
+ADD
+    CONSTRAINT vendedor_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    endereco
+ADD
+    CONSTRAINT endereco_usuario_unique UNIQUE (id_endereco, id_usuario);
+
+ALTER TABLE
+    endereco
+ADD
+    CONSTRAINT maior_que_zero CHECK (numero > 0);
+
+ALTER TABLE
+    pedido
+ADD
+    CONSTRAINT fk_endereco_usuario FOREIGN KEY (id_endereco_entrega, id_usuario) REFERENCES endereco(id_endereco, id_usuario) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    produto
+ADD
+    CONSTRAINT produto_id_vendedor_fkey FOREIGN KEY (id_vendedor) REFERENCES vendedor(id_vendedor) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    estoque
+ADD
+    CONSTRAINT estoque_id_produto_fkey FOREIGN KEY (id_produto) REFERENCES produto(id_produto) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    produto_pedido
+ADD
+    CONSTRAINT produto_pedido_id_pedido_fkey FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE
+    produto_pedido
+ADD
+    CONSTRAINT produto_pedido_id_produto_fkey FOREIGN KEY (id_produto) REFERENCES produto(id_produto) ON DELETE CASCADE ON UPDATE CASCADE;
