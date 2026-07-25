@@ -9,7 +9,7 @@ Table Cliente {
   id_cliente integer [primary key, increment]
   id_usuario integer [not null, unique]
   nome varchar(50) [not null]
-  cpf varchar(14) [unique, not null]
+  cpf varchar(11) [unique, not null]
   sexo char(1) [not null]
   data_nascimento date [not null]
   
@@ -30,6 +30,7 @@ Table Endereco {
   bairro varchar(100) [not null]
   cep varchar(8) [not null]
   rua varchar(100) [not null]
+  complemento varchar(50) [not null]
   numero varchar(10) [not null]
 }
 
