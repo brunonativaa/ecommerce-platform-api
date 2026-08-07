@@ -9,3 +9,4 @@ class UsuarioModel(Base):
     email = Column(String(100), unique=True, nullable=False)
     senha = Column(String(100), nullable=False)
     data_cadastro = Column(Date, default=lambda: datetime.now(timezone.utc).date(), nullable=False)
+    tipo_usuario = Column(String(20), default="CLIENTE", nullable=False)

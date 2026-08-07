@@ -7,7 +7,7 @@ class ClienteModel(Base):
     __tablename__ = 'cliente'
 
     id_cliente = Column(Integer, primary_key=True, index=True)
-    id_usuario = Column(Integer, ForeignKey("usuario.id_usuario"), nullabe=False, unique=True)
+    id_usuario = Column(Integer, ForeignKey("usuario.id_usuario"), nullable=False, unique=True)
     nome = Column(String(50), nullable=False)
     cpf = Column(String(11), unique=True, nullable=False)
     sexo =  Column(CHAR(1))
