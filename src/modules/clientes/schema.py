@@ -7,11 +7,10 @@ import re
 class ClienteCreateInput(BaseModel):
     nome: str
     cpf: str = Field(..., min_length=11, max_length=11)
+    sexo: str 
     data_nascimento: date
-    email: EmailStr
-    cep: str = Field(..., min_length=8, max_length=9)
-    numero: int = Field(..., gt=0)
-    complemento: Optional[str] = None
+
+    
 
     @field_validator("data_nascimento")
     def validar_idade(cls, value):

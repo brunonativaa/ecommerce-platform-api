@@ -1,7 +1,7 @@
 from datetime import date
 from src.core.database import Base, engine, SessionLocal
-from src.modules.usuario.user_model import UsuarioModel
-from src.modules.clientes.cliente_model import ClienteModel
+from src.modules.usuario.model import UsuarioModel
+from src.modules.clientes.model import ClienteModel
 
 # 1. Cria as tabelas no banco (se ainda não existirem)
 print("Criando tabelas no banco de dados...")
