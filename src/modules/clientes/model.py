@@ -1,5 +1,6 @@
 from typing import Optional
 from sqlalchemy import Column, Integer, String, Date, CHAR, ForeignKey
+from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 
@@ -12,3 +13,5 @@ class ClienteModel(Base):
     cpf = Column(String(11), unique=True, nullable=False)
     sexo =  Column(CHAR(1))
     data_nascimento = Column(Date, nullable=False)
+
+    usuario = relationship("UsuarioModel", back_populates="profile_cliente")

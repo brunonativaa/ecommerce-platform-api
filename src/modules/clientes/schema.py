@@ -8,8 +8,10 @@ import re
 class ClienteBase(BaseModel):
     nome: str
     cpf: str = Field(..., min_length=11, max_length=11)
-    sexo: Optional[str] = None
-    data_nascimento: date 
+    sexo: str 
+    data_nascimento: date
+
+    
 
     
     @field_validator("data_nascimento")

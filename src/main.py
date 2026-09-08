@@ -1,5 +1,9 @@
 from fastapi import FastAPI
+<<<<<<< HEAD
 from src.modules.usuario.user_router import router as user_router
+=======
+from src.modules.clientes.router import router as clientes_router
+>>>>>>> develop
 
 
 app = FastAPI()

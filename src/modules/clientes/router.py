@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status, HTTPException
-from src.modules.clientes.clientes_schema import ClienteCreateInput
+from src.modules.clientes.schema import ClienteCreateInput
 from src.core.viacep import buscar_endereco_por_cep
 
 
