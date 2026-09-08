@@ -4,7 +4,8 @@ from typing import Optional
 import re
 
 
-class ClienteCreateInput(BaseModel):
+
+class ClienteBase(BaseModel):
     nome: str
     cpf: str = Field(..., min_length=11, max_length=11)
     sexo: str 
@@ -12,6 +13,7 @@ class ClienteCreateInput(BaseModel):
 
     
 
+    
     @field_validator("data_nascimento")
     def validar_idade(cls, value):
         idade = (date.today() - value).days // 365
@@ -27,16 +29,32 @@ class ClienteCreateInput(BaseModel):
         return cpf_limpo
 
 
+class ClienteCreate(ClienteBase):
+    pass
+
+class ClienteResponse(ClienteBase):
+    id_cliente: int
+    id_usuario: int
+
 class ClienteOutput(BaseModel):
     id: int
     nome: str
     cpf: str
-    email: EmailStr
-    logradouro: str
-    bairro: str
-    cidade: str
-    uf: str
-    numero: int
-    complemento: Optional[str] = None
+    
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True
+
+class VendedorBase(BaseModel):
+    nome_loja: str
+    cnpj: str 
+
+class VendedorCreate(VendedorBase):
+    pass 
+
+class VendedorResponse(VendedorBase):
+    id_vendedor: int
+    id_usuario: int
+
+    class config:
+        from_attributes = True

@@ -1,7 +1,7 @@
 ## 📐 Modelagem do E-commerce
 
 <i>Imagem do diagrama:</i>
-![Diagrama E-commerce](./docs/eccomerce.png)
+![Diagrama E-commerce](docs/eccomerce.png)
 
 ### 📐 Decisões de Arquitetura e Modelagem (ShopWave)
 

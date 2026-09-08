@@ -10,6 +10,6 @@ class VendedorModel(Base):
     id_vendedor = Column(Integer, primary_key=True, index=True)
     id_usuario = Column(Integer, ForeignKey("usuario.id_usuario"), unique=True, nullable=False)
     nome_loja = Column(String(100), nullable=False)
-    cnpj = Column(String(18), Unique =True, nullable=False )
+    cnpj = Column(String(18), unique =True, nullable=False )
 
     usuario = relationship("UsuarioModel", back_populates="profile_vendedor")

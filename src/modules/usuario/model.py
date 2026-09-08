@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from sqlalchemy import Column, String, Date, Integer
-from sqlachemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 

@@ -1,6 +1,6 @@
 from typing import Optional
 from sqlalchemy import Column, Integer, String, Date, CHAR, ForeignKey
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 from src.core.database import Base
 
 

@@ -1,7 +1,7 @@
 from datetime import datetime 
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
-from src.modules.pedidos.orders_model import StatusOrderEnum
+from src.modules.pedidos.model import StatusOrderEnum
 
 
 class OrderBase(BaseModel):
